@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function JSprice2transf(num, price) {
+            if (parseInt(price) != price) {
+                var floatprice = parseFloat(price);
+                var listprice = floatprice.toString().split('.');
+                var lenstrprice = listprice[1].length;
+                var tenprice = Math.pow(10, lenstrprice);
+            } else {
+                var tenprice = 1;
+            }
+
+            return num * (price * tenprice) / tenprice;
+        }    
+    </script>
+</body>
+
+</html>

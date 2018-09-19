@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><input value="">分</p>
+    <p><input value="">秒</p>
+    <script>
+        var mNode = document.getElementsByTagName("input")[0];
+        var sNode = document.getElementsByTagName("input")[1];
+
+        var m = 0;
+        var s = 0;
+        var time = setInterval(function () {
+            s ++;
+            if(s == 60){
+                s = 0;
+                m ++;
+            }
+            sNode.value = s;
+            mNode.value = m;
+            if(m == 3){
+                clearInterval(time);
+            }
+            
+        }, 100);
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <component-test1></component-test1>
+    </div>
+    <div id="app2">
+        <component-test1></component-test1>
+    </div>
+    <script>
+        var componentTest1 = {
+            template : `
+                <div>
+                    <h1>标题</h1>
+                    <p>内容描述 : {{ msg }}</p>    
+                </div>
+            `,
+            data : function(){
+                return {
+                    msg : "巴黎看记录卡时间段克拉数据的风口浪尖"
+                }
+            }
+        }
+        // Vue.component("component-test1",componentTest1);
+        new Vue({
+            el : "#app",
+            components : {
+                "component-test1" : componentTest1,
+            }
+        })
+        new Vue({
+            el : "#app2"
+        })
+    </script>
+</body>
+</html>

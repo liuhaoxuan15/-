@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
+    <style>
+        .shape {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+        }
+        .circle {
+            background-color: red;
+            border-radius: 50%;
+        }
+        .square {
+            background-color: blue;
+        }
+        .up {
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 150px solid orange;
+        }
+        .down {
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 150px solid red;
+        }
+        .sanjiao{
+            width: 0;
+            height: 0;
+        }
+        .animation{
+            animation : strentch 0.8s ease-out;
+        }
+        @keyframes strentch{
+            0%{
+                transform: scale(0.3)
+            }
+            100%{
+                transform: scale(1)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <div v-for="shape in shapes" class="shape" v-bind:class="{ circle : shape.isRound , square : !shape.isRound }"></div> -->
+        <!-- <div v-for="shape in shapes" class="shape" v-bind:class="[shape.shape,shape.fangxiang]"></div> -->
+        <div v-for="shape in shapes" class="shape" v-bind:class="[shape.shape,shape.fangxiang,{animation : shape.animation}]"></div>
+
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#app",
+            data : {
+                // shapes : [
+                //     {isRound : true},
+                //     {isRound : false}
+                // ]
+                shapes : [
+                    {
+                        shape : 'circle',
+                        animation : true,
+                    },
+                    {
+                        shape : 'square'
+                    },
+                    {
+                        shape : 'sanjiao',
+                        fangxiang : 'up',
+                        animation : true,  
+                    },
+                    {
+                        shape : 'sanjiao',
+                        fangxiang : 'down'    
+                    }
+                ]
+            },
+            
+        })
+    </script>
+</body>
+</html>
